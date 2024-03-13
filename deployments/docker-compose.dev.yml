@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+  minecraft-java-server:
+    image: itzg/minecraft-server:java17
+    container_name: infrared-dev-paper-server
+    restart: "no"
+    volumes:
+      - ../.dev/paper:/data
+    ports:
+      - 25566:25565/tcp
+    environment:
+      EULA: "TRUE"
+      VERSION: "1.20.4"
+      TYPE: PAPER
+    networks:
+      - infrared
+    labels:
+      - infrared.java.servers.devserver.gateways=[default]
+      - infrared.java.servers.devserver.domains=[*]
+      - infrared.java.servers.devserver.address=:25566
+
+  haproxy:
+    image: haproxy:alpine
+    container_name: infrared-dev-haproxy
+    volumes:
+      - ../.dev/haproxy:/usr/local/etc/haproxy:ro
+    network_mode: host
+
+  redis:
+    image: redis:alpine
+    container_name: infrared-dev-redis
+    ports:
+      - 6379:6379/tcp
+    networks:
+      - infrared
+
+networks:
+  infrared:
+    name: infrared

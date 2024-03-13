@@ -1,0 +1,24 @@
+# Artifacts
+out/
+__debug_bin*
+dist/
+
+# Benchmark/Profiler
+*.bench
+*.test
+*.prof
+
+# Local Dev Files
+.dev/
+cmd/infrared/config.yml
+
+# VSCode Dev Files
+.vscode/
+
+# IntelliJ Dev Files
+.idea/
+
+# Docs
+docs/node_modules/
+docs/.vitepress/cache/
+docs/.vitepress/dist/
