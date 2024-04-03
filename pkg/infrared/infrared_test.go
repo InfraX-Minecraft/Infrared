@@ -110,7 +110,8 @@ type VirtualInfrared struct {
 }
 
 func (vi *VirtualInfrared) ListenAndServe() error {
-	return vi.vir.ListenAndServe()
+	whitelistCache := make(map[string]bool)
+	return vi.vir.ListenAndServe(whitelistCache)
 }
 
 func (vi *VirtualInfrared) MustListenAndServe(t *testing.T) {
