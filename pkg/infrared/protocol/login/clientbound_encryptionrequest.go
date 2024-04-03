@@ -1,6 +1,6 @@
 package login
 
-import "github.com/haveachin/infrared/pkg/infrared/protocol"
+import "github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol"
 
 const ClientBoundEncryptionRequestID int32 = 0x01
 

@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/haveachin/infrared/pkg/infrared/protocol"
-	"github.com/haveachin/infrared/pkg/infrared/protocol/login"
+	"github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol"
+	"github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol/login"
 )
 
 func TestClientBoundDisconnect_Marshal(t *testing.T) {

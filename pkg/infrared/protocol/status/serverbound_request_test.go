@@ -3,8 +3,8 @@ package status_test
 import (
 	"testing"
 
-	"github.com/haveachin/infrared/pkg/infrared/protocol"
-	"github.com/haveachin/infrared/pkg/infrared/protocol/status"
+	"github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol"
+	"github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol/status"
 )
 
 func TestServerBoundRequest_Marshal(t *testing.T) {

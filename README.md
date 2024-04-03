@@ -8,14 +8,14 @@
   <a href="https://discord.gg/r98YPRsZAx">
   <img alt="Discord" src="https://img.shields.io/discord/800456341088370698?label=discord&logo=discord" />
   </a>
-  <a href="https://hub.docker.com/r/haveachin/infrared">
-  <img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/haveachin/infrared?logo=docker" />
+  <a href="https://hub.docker.com/r/InfraX-Minecraft/infrared">
+  <img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/InfraX-Minecraft/infrared?logo=docker" />
   </a>
   <br />
-  <img alt="CI" src="https://github.com/haveachin/infrared/actions/workflows/ci.yml/badge.svg" />
+  <img alt="CI" src="https://github.com/InfraX-Minecraft/infrared/actions/workflows/ci.yml/badge.svg" />
 </p>
 
-> [!WARNING] 
+> [!WARNING]
 > Infrared is currently under active development: bugs and breaking changes can happen.
 > Feedback and contributions are welcome.
 
@@ -26,34 +26,36 @@ Infrared works as a reverse proxy using a sub-/domains to connect clients to a s
 
 ## Features
 
-- [X] Reverse Proxy
-  - [X] Wildcards Support
-  - [X] Multi-Domain Support
-- [X] Status Response Caching
-- [X] Proxy Protocol Support
-- [X] Ratelimiter
+- [x] Reverse Proxy
+  - [x] Wildcards Support
+  - [x] Multi-Domain Support
+- [x] Status Response Caching
+- [x] Proxy Protocol Support
+- [x] Ratelimiter
 
 ## Useful Links
 
 - **[Docs](https://infrared.dev)**
-- **[Ask Questions](https://github.com/haveachin/infrared/discussions)**
-- [Latest Release](https://github.com/haveachin/infrared/releases/latest)
+- **[Ask Questions](https://github.com/InfraX-Minecraft/infrared/discussions)**
+- [Latest Release](https://github.com/InfraX-Minecraft/infrared/releases/latest)
 - [Discord Invite](https://discord.gg/r98YPRsZAx)
 - [Contributing](CONTRIBUTING.md)
 
 ## Build
 
 Requirements:
+
 - [Go](https://go.dev/) 1.21+
 
 ```
 CGO_ENABLED=0 go build -ldflags "-s -w" -o ./out/infrared ./cmd/infrared
 ```
+
 or `make all` (requires GNU Make). The binary is in the `out/` directory.
 
 ## Similar Projects
 
-* https://github.com/itzg/mc-router
+- https://github.com/itzg/mc-router
 
 ## Attributions
 

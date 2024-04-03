@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/haveachin/infrared/pkg/infrared/protocol"
+	"github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol"
 )
 
 var varInts = []protocol.VarInt{0, 1, 2, 127, 128, 255, 2147483647, -1, -2147483648}

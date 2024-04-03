@@ -7,9 +7,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/haveachin/infrared/pkg/infrared/protocol"
-	"github.com/haveachin/infrared/pkg/infrared/protocol/handshaking"
-	"github.com/haveachin/infrared/pkg/infrared/protocol/login"
+	"github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol"
+	"github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol/handshaking"
+	"github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol/login"
 )
 
 var cliConnPool = sync.Pool{

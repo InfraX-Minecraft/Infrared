@@ -6,10 +6,10 @@ import (
 	"net"
 	"testing"
 
-	ir "github.com/haveachin/infrared/pkg/infrared"
-	"github.com/haveachin/infrared/pkg/infrared/protocol"
-	"github.com/haveachin/infrared/pkg/infrared/protocol/handshaking"
-	"github.com/haveachin/infrared/pkg/infrared/protocol/login"
+	ir "github.com/InfraX-Minecraft/infrared/pkg/infrared"
+	"github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol"
+	"github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol/handshaking"
+	"github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol/login"
 	"github.com/pires/go-proxyproto"
 )
 

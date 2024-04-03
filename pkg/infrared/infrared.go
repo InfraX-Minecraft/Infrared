@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/haveachin/infrared/pkg/infrared/protocol"
+	"github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol"
 	"github.com/rs/zerolog"
 )
 
@@ -200,7 +200,7 @@ func (ir *Infrared) init() error {
 	return nil
 }
 
-func (ir *Infrared) ListenAndServe() error {
+func (ir *Infrared) ListenAndServe(whitelistCache map[string]bool) error {
 	if err := ir.init(); err != nil {
 		return err
 	}
@@ -217,11 +217,11 @@ func (ir *Infrared) ListenAndServe() error {
 			continue
 		}
 
-		go ir.handleNewConn(c)
+		go ir.handleNewConn(c, whitelistCache)
 	}
 }
 
-func (ir *Infrared) handleNewConn(c net.Conn) {
+func (ir *Infrared) handleNewConn(c net.Conn, whitelistCache map[string]bool) {
 	if err := ir.filter.Filter(c); err != nil {
 		ir.Logger.Debug().
 			Err(err).
@@ -235,14 +235,14 @@ func (ir *Infrared) handleNewConn(c net.Conn) {
 		cleanUp()
 	}()
 
-	if err := ir.handleConn(conn); err != nil {
+	if err := ir.handleConn(conn, whitelistCache); err != nil {
 		ir.Logger.Debug().
 			Err(err).
 			Msg("Error while handling connection")
 	}
 }
 
-func (ir *Infrared) handleConn(c *clientConn) error {
+func (ir *Infrared) handleConn(c *clientConn, whitelistCache map[string]bool) error {
 	if err := c.ReadPackets(&c.readPks[0], &c.readPks[1]); err != nil {
 		return err
 	}
@@ -276,7 +276,7 @@ func (ir *Infrared) handleConn(c *clientConn) error {
 		return handleStatus(c, resp)
 	}
 
-	return ir.handleLogin(c, resp)
+	return ir.handleLogin(c, resp, whitelistCache)
 }
 
 func handleStatus(c *clientConn, resp ServerResponse) error {
@@ -296,10 +296,19 @@ func handleStatus(c *clientConn, resp ServerResponse) error {
 	return nil
 }
 
-func (ir *Infrared) handleLogin(c *clientConn, resp ServerResponse) error {
+func (ir *Infrared) handleLogin(c *clientConn, resp ServerResponse, whitelistCache map[string]bool) error {
 	hsVersion := protocol.Version(c.handshake.ProtocolVersion)
 	if err := c.loginStart.Unmarshal(c.readPks[1], hsVersion); err != nil {
 		return err
+	}
+
+	ir.Logger.Info().Msgf("%v attempted to login, whitelisted: %v", string(c.loginStart.Name), whitelistCache[string(c.loginStart.Name)])
+
+	if !whitelistCache[string(c.loginStart.Name)] {
+		err := c.ForceClose()
+		if err != nil {
+			return err
+		}
 	}
 
 	c.timeout = ir.cfg.KeepAliveTimeout

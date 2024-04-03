@@ -4,6 +4,7 @@ All proxy configs should live in the `proxies` directory.
 The proxy directory can be changed via the [Proxies Path](cli-and-env-vars#proxies-path)
 
 Minimal proxy config example:
+
 ```yml [my-server.yml]
 # This is the domain that players enter in their game client.
 # You can have multiple domains here or just one.
@@ -18,4 +19,4 @@ addresses:
   - 127.0.0.1:25565
 ```
 
-[Complete proxy config example](https://github.com/haveachin/infrared/blob/main/configs/proxy.yml)
+[Complete proxy config example](https://github.com/InfraX-Minecraft/infrared/blob/main/configs/proxy.yml)

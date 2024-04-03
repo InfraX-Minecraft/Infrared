@@ -8,7 +8,7 @@ import (
 	"os"
 	"path/filepath"
 
-	ir "github.com/haveachin/infrared/pkg/infrared"
+	ir "github.com/InfraX-Minecraft/infrared/pkg/infrared"
 	"gopkg.in/yaml.v3"
 )
 

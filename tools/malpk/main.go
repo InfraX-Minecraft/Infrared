@@ -6,8 +6,8 @@ import (
 	"net"
 	"sync"
 
-	"github.com/haveachin/infrared/pkg/infrared/protocol"
-	"github.com/haveachin/infrared/pkg/infrared/protocol/handshaking"
+	"github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol"
+	"github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol/handshaking"
 )
 
 var payload []byte

@@ -9,9 +9,9 @@ import (
 	"time"
 
 	"github.com/IGLOU-EU/go-wildcard"
+	"github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol"
+	"github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol/status"
 	"github.com/cespare/xxhash/v2"
-	"github.com/haveachin/infrared/pkg/infrared/protocol"
-	"github.com/haveachin/infrared/pkg/infrared/protocol/status"
 )
 
 var (

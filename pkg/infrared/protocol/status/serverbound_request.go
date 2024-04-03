@@ -1,6 +1,6 @@
 package status
 
-import "github.com/haveachin/infrared/pkg/infrared/protocol"
+import "github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol"
 
 const ServerBoundRequestID int32 = 0x00
 

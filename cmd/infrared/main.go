@@ -4,11 +4,12 @@ import (
 	"errors"
 	"os"
 	"os/signal"
+	"strings"
 	"syscall"
 	"time"
 
-	ir "github.com/haveachin/infrared/pkg/infrared"
-	"github.com/haveachin/infrared/pkg/infrared/config"
+	ir "github.com/InfraX-Minecraft/infrared/pkg/infrared"
+	"github.com/InfraX-Minecraft/infrared/pkg/infrared/config"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/pflag"
@@ -106,9 +107,34 @@ func run() error {
 	})
 	srv.Logger = log.Logger
 
+	whitelistCache := make(map[string]bool)
+
+	ticker := time.NewTicker(5 * time.Second)
+	quit := make(chan struct{})
+	go func() {
+		for {
+			select {
+			case <-ticker.C:
+				dat, err := os.ReadFile("./whitelist.infrax")
+				if err != nil {
+					log.Error().Err(err).Msg("Failed to read whitelist")
+					continue
+				}
+
+				names := strings.Split(string(dat), "\n")
+				for _, name := range names {
+					whitelistCache[name] = true
+				}
+			case <-quit:
+				ticker.Stop()
+				return
+			}
+		}
+	}()
+
 	errChan := make(chan error, 1)
 	go func() {
-		errChan <- srv.ListenAndServe()
+		errChan <- srv.ListenAndServe(whitelistCache)
 	}()
 
 	sigChan := make(chan os.Signal, 1)
@@ -135,7 +161,7 @@ func run() error {
 			}
 		}
 	}
-
+	close(quit)
 	log.Info().Msg("Bye")
 
 	return nil

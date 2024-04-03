@@ -3,7 +3,7 @@ package login
 import (
 	"bytes"
 
-	"github.com/haveachin/infrared/pkg/infrared/protocol"
+	"github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol"
 )
 
 const ServerBoundLoginStartID int32 = 0x00

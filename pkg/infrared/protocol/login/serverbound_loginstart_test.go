@@ -3,8 +3,8 @@ package login_test
 import (
 	"testing"
 
-	"github.com/haveachin/infrared/pkg/infrared/protocol"
-	"github.com/haveachin/infrared/pkg/infrared/protocol/login"
+	"github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol"
+	"github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol/login"
 )
 
 func TestUnmarshalServerBoundLoginStart(t *testing.T) {

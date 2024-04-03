@@ -2,6 +2,7 @@ package infrared
 
 import (
 	"errors"
+	"fmt"
 	"math"
 	"net"
 	"strconv"
@@ -168,6 +169,7 @@ func (r *rateLimiter) Filterer() Filterer {
 
 		if nrate >= r.requestLimit {
 			r.onRequestLimit(c)
+			fmt.Println("Rate limit reached: ", key)
 			return ErrRateLimitReached
 		}
 

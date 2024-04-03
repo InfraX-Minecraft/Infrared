@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/haveachin/infrared/pkg/infrared/protocol"
-	"github.com/haveachin/infrared/pkg/infrared/protocol/handshaking"
+	"github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol"
+	"github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol/handshaking"
 )
 
 func TestServerBoundHandshake_Marshal(t *testing.T) {

@@ -1,4 +1,0 @@
-FROM alpine:latest
-COPY infrared /usr/bin/infrared
-WORKDIR /etc/infrared
-ENTRYPOINT [ "/usr/bin/infrared" ]

@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/haveachin/infrared/pkg/infrared/protocol"
+	"github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol"
 )
 
 const (

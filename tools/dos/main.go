@@ -9,9 +9,9 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/haveachin/infrared/pkg/infrared/protocol"
-	"github.com/haveachin/infrared/pkg/infrared/protocol/handshaking"
-	"github.com/haveachin/infrared/pkg/infrared/protocol/login"
+	"github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol"
+	"github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol/handshaking"
+	"github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol/login"
 	"github.com/pires/go-proxyproto"
 )
 
@@ -23,7 +23,7 @@ var (
 func initPayload() {
 	var pk protocol.Packet
 	_ = handshaking.ServerBoundHandshake{
-		ProtocolVersion: 758,
+		ProtocolVersion: 764,
 		ServerAddress:   "localhost",
 		ServerPort:      25565,
 		NextState:       handshaking.StateStatusServerBoundHandshake,
@@ -33,10 +33,10 @@ func initPayload() {
 	handshakePayload = buf.Bytes()
 
 	_ = login.ServerBoundLoginStart{
-		Name:          "Test",
+		Name:          "slowest____side",
 		HasSignature:  false,
 		HasPlayerUUID: false,
-	}.Marshal(&pk, protocol.Version1_19)
+	}.Marshal(&pk, protocol.Version1_20_2)
 	buf.Reset()
 	_, _ = pk.WriteTo(&buf)
 	loginStartPayload = buf.Bytes()

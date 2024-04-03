@@ -4,7 +4,7 @@ layout: home
 hero:
   name: Infrared
   text: The Reverse Proxy for Minecraft
-  tagline: 
+  tagline:
   image:
     src: /img/logo.svg
     alt: Infrared
@@ -14,7 +14,7 @@ hero:
       link: /getting-started
     - theme: alt
       text: Contribute
-      link: https://github.com/haveachin/infrared/blob/main/CONTRIBUTING.md
+      link: https://github.com/InfraX-Minecraft/infrared/blob/main/CONTRIBUTING.md
 
 features:
   - icon: 📖

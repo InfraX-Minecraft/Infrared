@@ -4,7 +4,7 @@ import (
 	"errors"
 	"os"
 
-	"github.com/haveachin/infrared/configs"
+	"github.com/InfraX-Minecraft/infrared/configs"
 )
 
 func createConfigIfNotExist() error {

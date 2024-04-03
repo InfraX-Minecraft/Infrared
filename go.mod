@@ -1,4 +1,4 @@
-module github.com/haveachin/infrared
+module github.com/InfraX-Minecraft/infrared
 
 go 1.21
 

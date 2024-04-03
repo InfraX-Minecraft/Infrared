@@ -1,6 +1,6 @@
 package play
 
-import "github.com/haveachin/infrared/pkg/infrared/protocol"
+import "github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol"
 
 const ClientBoundDisconnectID int32 = 0x17
 

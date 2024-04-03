@@ -7,7 +7,7 @@ import (
 	"io"
 	"testing"
 
-	"github.com/haveachin/infrared/pkg/infrared/protocol"
+	"github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol"
 )
 
 func TestBytePeeker_ReadByte(t *testing.T) {

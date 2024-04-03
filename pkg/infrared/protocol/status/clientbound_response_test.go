@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/haveachin/infrared/pkg/infrared/protocol"
-	"github.com/haveachin/infrared/pkg/infrared/protocol/status"
+	"github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol"
+	"github.com/InfraX-Minecraft/infrared/pkg/infrared/protocol/status"
 )
 
 func TestClientBoundResponse_Marshal(t *testing.T) {
